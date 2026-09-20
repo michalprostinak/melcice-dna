@@ -7,7 +7,7 @@ uniform float uSizeK, uEndY, uIntro, uCenterY, uAspect, uPointerOn, uBurst;
 uniform vec2 uPointer;
 const float PI = 3.14159265359;
 const vec3 ACCENT = vec3(0.102, 0.435, 0.816); // #1A6FD0
-const vec3 NAVY = vec3(0.043, 0.133, 0.220);   // #0B2238
+const vec3 NAVY = vec3(0.075, 0.250, 0.480);   // deep blue, lighter than the text colour
 
 vec3 strandPos(float y, float side) {
   float th = y * uTwist + side * PI + uWave * sin(y * 0.23 + uTime * 0.3);
@@ -45,7 +45,7 @@ void main() {
   vec3 p = pA;
   float size = 0.05;
   float alpha = 0.5;
-  vec3 base = vec3(0.30, 0.46, 0.64);
+  vec3 base = vec3(0.40, 0.58, 0.78);
   float endFade = 1.0 - smoothstep(uEndY + 0.2, uEndY + 2.4, y);
 
   if (kind < 0.5) {
@@ -53,12 +53,12 @@ void main() {
   } else if (kind < 1.5) {
     p = pB; size = 0.085; alpha = 0.8 * endFade;
   } else if (kind < 2.5) {
-    p = mix(pA, pB, t); size = 0.05; alpha = 0.55; base = vec3(0.42, 0.58, 0.74);
+    p = mix(pA, pB, t); size = 0.05; alpha = 0.55; base = vec3(0.58, 0.72, 0.87);
   } else {
     p = kind > 3.5 ? pB : pA;
     size = 0.27 + 0.3 * major;
     alpha = 0.95;
-    base = vec3(0.16, 0.30, 0.48);
+    base = vec3(0.24, 0.44, 0.72);
   }
 
   size *= uSizeK;
@@ -96,7 +96,7 @@ varying vec3 vCol;
 varying float vAlpha;
 varying float vKind;
 varying float vGlow;
-const vec3 NAVY = vec3(0.043, 0.133, 0.220);
+const vec3 NAVY = vec3(0.075, 0.250, 0.480);
 
 void main() {
   vec2 c = gl_PointCoord - 0.5;

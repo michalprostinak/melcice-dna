@@ -38,11 +38,6 @@ export default function Hero() {
 
   return (
     <section id="top" data-node="0" className="hero" ref={ref}>
-      <div className="hero__top">
-        <span className="meta">{t(UI.heroPlace)}</span>
-        <span className="meta">{SITE.domain}</span>
-      </div>
-
       <div className="hero__body">
         <h1 className="hero__title" aria-label={SITE.name}>
           {SITE.brandLines.map((line) => (
@@ -53,19 +48,11 @@ export default function Hero() {
         </h1>
         <p className="hero__lead">{t(UI.heroLead)}</p>
         <div className="hero__cta">
-          <button type="button" className="btn btn--solid" onClick={() => goTo('code')}>
+          <button type="button" className="btn btn--solid" onClick={() => goTo('origin')}>
             <span className="btn__label">{t(UI.explore)}</span>
             <span className="btn__arrow" aria-hidden="true">→</span>
           </button>
         </div>
-      </div>
-
-      <div className="hero__foot meta">
-        <span className="hero__scroll">
-          <i aria-hidden="true" />
-          {sync.coarse ? t(UI.dragHint) : t(UI.scrollHint)}
-        </span>
-        <span>{t(UI.madeInShort)}</span>
       </div>
     </section>
   );

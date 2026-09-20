@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { mulberry32 } from '../../lib/util';
 import { sync } from '../../lib/store';
+import { SITE } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import Split from '../ui/Split';
 
@@ -96,13 +97,18 @@ function OriginNet() {
 export default function Origin() {
   const { t } = useLang();
   return (
-    <section id="origin" data-node="7" className="origin">
+    <section id="origin" data-node="1" className="origin">
       <OriginNet />
       <div className="origin__text">
         <h2 className="mega mega--origin" aria-label="MELČICE-LIESKOVÉ">
           <Split text={"MELČICE-\nLIESKOVÉ"} />
         </h2>
         <p className="origin__country">{t(UI.country)}</p>
+        <div className="school">
+          <p className="meta">{t(UI.foundedWith)}</p>
+          <p className="school__name">{SITE.school}</p>
+          <p className="school__note">{t(UI.schoolNote)}</p>
+        </div>
         <p className="statement statement--narrow">{t(UI.originLead)}</p>
       </div>
     </section>

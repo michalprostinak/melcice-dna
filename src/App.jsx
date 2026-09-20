@@ -4,9 +4,9 @@ import { UI, useLang } from './i18n';
 import { startLoop } from './lib/loop';
 import DnaFallback from './components/dna/DnaFallback';
 import Nav from './components/ui/Nav';
+import LangGate from './components/ui/LangGate';
 import Hero from './components/sections/Hero';
-import Code from './components/sections/Code';
-import Codons from './components/sections/Codons';
+import About from './components/sections/About';
 import People from './components/sections/People';
 import Origin from './components/sections/Origin';
 import Events from './components/sections/Events';
@@ -43,13 +43,13 @@ export default function App() {
           <DnaFallback />
         )}
       </div>
+      <LangGate />
       <Nav />
       <main id="main" tabIndex={-1}>
         <Hero />
-        <Code />
-        <Codons />
-        <People />
         <Origin />
+        <About />
+        <People />
         <Events />
         <HackClub />
       </main>

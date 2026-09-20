@@ -40,6 +40,8 @@ export const sync = {
   intro: d.reduced ? 1 : 0,
   burst: 0,
   ready: false,
+  entered: false, // true once the language gate has been passed
+  introStarted: false,
   view: { dist: 13, tilt: 0 },
   // device
   isMobile: d.isMobile,

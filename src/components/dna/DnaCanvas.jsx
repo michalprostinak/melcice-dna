@@ -6,7 +6,6 @@ import { sync } from '../../lib/store';
 import { NODE_COUNT, RADIUS, SPACING, TWIST, VIEWS_DESKTOP, VIEWS_MOBILE, theta } from '../../lib/helix';
 import { FS_HELIX, FS_SOFT, VS_AMBIENT, VS_FLOW, VS_HELIX } from './shaders';
 import { buildAmbient, buildFlow, buildHelix } from './geometry';
-import Labels from './Labels';
 
 const KEYS = ['tilt', 'roll', 'x', 'y', 'dist', 'phi', 'dim'];
 
@@ -52,6 +51,10 @@ function Scene() {
     if (!S.ready) {
       S.ready = true;
       document.documentElement.classList.add('dna-ready');
+    }
+    // The helix grows in once the visitor has passed the language screen.
+    if (S.entered && !S.introStarted) {
+      S.introStarted = true;
       if (!S.reduced) gsap.to(S, { intro: 1, duration: 3.2, ease: 'power2.out' });
     }
 
@@ -167,7 +170,6 @@ function Scene() {
       <points geometry={ambient.geometry} material={mats.ambient} frustumCulled={false} />
       <points geometry={helix.geometry} material={mats.helix} frustumCulled={false} />
       <points geometry={flow.geometry} material={mats.flow} frustumCulled={false} />
-      <Labels />
     </group>
   );
 }

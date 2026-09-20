@@ -37,10 +37,9 @@ export function startLoop() {
     lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.9, smoothWheel: true });
     sync.lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
+    if (document.documentElement.classList.contains('gate-open')) lenis.stop();
   }
   let lastY = window.scrollY;
-  let bar = null;
-  let lastP = -1;
 
   const tick = (time, delta) => {
     if (lenis) lenis.raf(time * 1000);
@@ -50,14 +49,6 @@ export function startLoop() {
     lastY = y;
     sync.u = computeU(y);
     setActive(Math.round(sync.u));
-
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    sync.progress = Math.min(1, Math.max(0, y / max));
-    if (!bar || !bar.isConnected) bar = document.querySelector('.nav__progress');
-    if (bar && Math.abs(sync.progress - lastP) > 0.0005) {
-      bar.style.transform = `scaleX(${sync.progress.toFixed(4)})`;
-      lastP = sync.progress;
-    }
 
     const k = 1 - Math.exp(-dt * 6);
     sync.px += (sync.tx - sync.px) * k;

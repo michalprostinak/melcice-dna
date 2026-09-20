@@ -10,23 +10,21 @@ export const SITE = {
   domain: 'melciceclub.online',
   hackClubUrl: 'https://hackclub.com',
   githubUrl: 'https://github.com/michalprostinak',
+  owner: 'Michal Prostinák',
+  school: 'ZŠ s MŠ Jána Smreka Melčice-Lieskové',
 };
 
-/* The DNA: one node per section. `id` is the section's DOM id. */
+/* The DNA: one node per section (order = order on the page). `id` is the section's DOM id. */
 export const NODES = [
   { id: 'top', num: '00', label: { sk: 'DOMOV', en: 'HOME' } },
-  { id: 'code', num: '01', label: { sk: 'KÓD', en: 'CODE' } },
-  { id: 'create', num: '02', label: { sk: 'TVORBA', en: 'CREATE' } },
-  { id: 'learn', num: '03', label: { sk: 'UČENIE', en: 'LEARN' } },
-  { id: 'share', num: '04', label: { sk: 'ZDIEĽANIE', en: 'SHARE' } },
-  { id: 'ship', num: '05', label: { sk: 'VYDANIE', en: 'SHIP' } },
-  { id: 'people', num: '06', label: { sk: 'ĽUDIA', en: 'PEOPLE' } },
-  { id: 'origin', num: '07', label: { sk: 'MELČICE', en: 'MELČICE' } },
-  { id: 'events', num: '08', label: { sk: 'UDALOSTI', en: 'EVENTS' } },
-  { id: 'hackclub', num: '09', label: { sk: 'HACK CLUB', en: 'HACK CLUB' } },
+  { id: 'origin', num: '01', label: { sk: 'MELČICE', en: 'MELČICE' } },
+  { id: 'about', num: '02', label: { sk: 'ČO ROBÍME', en: 'WHAT WE DO' } },
+  { id: 'people', num: '03', label: { sk: 'ĽUDIA', en: 'PEOPLE' } },
+  { id: 'events', num: '04', label: { sk: 'UDALOSTI', en: 'EVENTS' } },
+  { id: 'hackclub', num: '05', label: { sk: 'HACK CLUB', en: 'HACK CLUB' } },
 ];
 
-/* CODE — technologies shown as genes. */
+/* WHAT WE DO — technologies shown as genes. */
 export const TECH = [
   { key: 'python', tag: 'PYTHON' },
   { key: 'html', tag: 'HTML' },
@@ -73,12 +71,4 @@ export const EVENTS = [
     note: { sk: 'Prvé stretnutie klubu.', en: 'The first meeting of the club.' },
     link: 'https://calendar.app.google/FeU3ACHTBuSBz9fa7',
   },
-];
-
-/* HACK CLUB — the ladder from local to global. */
-export const NETWORK_STEPS = [
-  { sk: 'MELČICE', en: 'MELČICE' },
-  { sk: 'SLOVENSKO', en: 'SLOVAKIA' },
-  { sk: 'EURÓPA', en: 'EUROPE' },
-  { sk: 'SVET', en: 'WORLD' },
 ];

@@ -8,6 +8,7 @@ import { sync } from '../../lib/store';
 const LINKS = [
   { key: 'navPeople', id: 'people' },
   { key: 'navEvents', id: 'events' },
+  { key: 'navHack', id: 'hackclub' },
 ];
 
 export default function Nav() {
@@ -74,7 +75,6 @@ export default function Nav() {
         <button ref={btnRef} className="nav__index" aria-expanded={open} aria-controls="index-panel" onClick={() => setOpen((o) => !o)}>
           {open ? t(UI.close) : t(UI.menu)}
         </button>
-        <span className="nav__progress" aria-hidden="true" />
       </header>
 
       {/* Desktop: the DNA rail. Each tick is a node of the helix. */}

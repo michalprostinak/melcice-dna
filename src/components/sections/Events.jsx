@@ -48,9 +48,9 @@ export default function Events() {
   }, []);
 
   const pad = (n) => String(n).padStart(2, '0');
-  const n = NODES[8];
+  const n = NODES[4];
   return (
-    <section id="events" data-node="8" className="sec sec--wide events">
+    <section id="events" data-node="4" className="sec sec--wide events">
       <div className="events__head">
         <h2 className="mega">
           <Split text={`${n.num} / ${t(n.label)}`} />

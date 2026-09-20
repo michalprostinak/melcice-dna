@@ -1,4 +1,4 @@
-import { MEMBERS, NODES } from '../../data/site';
+import { MEMBERS } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import Split from '../ui/Split';
 
@@ -43,10 +43,7 @@ function Specimen({ m }) {
 export default function People() {
   const { t } = useLang();
   return (
-    <section id="people" data-node="6" className="sec sec--wide">
-      <p className="meta">
-        {NODES[6].num} / {t(NODES[6].label)}
-      </p>
+    <section id="people" data-node="3" className="sec sec--wide">
       <h2 className="mega mega--people">
         <Split text={t(UI.peopleTitle)} />
       </h2>
