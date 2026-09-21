@@ -9,7 +9,6 @@ export const SITE = {
   brandLines: ['HACK CLUB', 'MELČICE'], // hero headline lines
   domain: 'melciceclub.online',
   hackClubUrl: 'https://hackclub.com',
-  githubUrl: 'https://github.com/michalprostinak',
   owner: 'Michal Prostinák',
   school: 'ZŠ s MŠ Jána Smreka Melčice-Lieskové',
 };
@@ -43,7 +42,6 @@ export const MEMBERS = [
     role: { sk: 'Zakladateľ a líder', en: 'Founder & Leader' },
     contacts: [
       { type: 'email', value: 'leader@melciceclub.online' },
-      { type: 'github', value: 'michalprostinak', href: 'https://github.com/michalprostinak' },
     ],
   },
   {

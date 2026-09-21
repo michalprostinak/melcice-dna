@@ -55,13 +55,11 @@ export const UI = {
     en: 'A project counts when someone else can use it.',
   },
   peopleTitle: { sk: 'ĽUDIA\nSÚ DNA.', en: 'THE PEOPLE\nARE THE DNA.' },
-  country: { sk: 'SLOVENSKO', en: 'SLOVAKIA' },
   originLead: {
     sk: 'Technologická komunita vedená študentmi z malej slovenskej školy.',
     en: 'A student-led technology community from a small Slovak school.',
   },
-  foundedWith: { sk: 'Založené v spolupráci so školou', en: 'Founded in cooperation with the school' },
-  schoolNote: { sk: 'Základná škola s materskou školou', en: 'Primary school with kindergarten' },
+  foundedWith: { sk: 'Založené v spolupráci so', en: 'Founded in cooperation with' },
   countdownLabel: { sk: 'Do začiatku', en: 'Starts in' },
   upcoming: { sk: 'NADCHÁDZAJÚCA UDALOSŤ', en: 'UPCOMING EVENT' },
   past: { sk: 'MINULÁ UDALOSŤ', en: 'PAST EVENT' },
@@ -93,7 +91,6 @@ export const UI = {
     en: 'Hack Club Melčice is one of the clubs in this network.',
   },
   hcLink: { sk: 'NAVŠTÍV HACKCLUB.COM', en: 'VISIT HACKCLUB.COM' },
-  gateTitle: { sk: 'Vyber si jazyk', en: 'Choose your language' },
   navHack: { sk: 'Hack Club', en: 'Hack Club' },
   days: { sk: 'd', en: 'd' },
 };
@@ -108,17 +105,13 @@ function readSaved() {
 }
 
 export function LangProvider({ children }) {
-  const [saved] = useState(readSaved);
-  const [lang, setLang] = useState(saved || 'sk');
-  const [needsChoice, setNeedsChoice] = useState(!saved);
+  const [lang, setLangState] = useState(() => readSaved() || 'sk');
 
   useEffect(() => {
-    // Returning visitors skip the language screen.
-    if (saved) {
-      sync.entered = true;
-      document.documentElement.classList.add('entered');
-    }
-  }, [saved]);
+    // No language screen: the page is ready to animate immediately.
+    sync.entered = true;
+    document.documentElement.classList.add('entered');
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -127,29 +120,16 @@ export function LangProvider({ children }) {
     if (meta) meta.setAttribute('content', UI.description[lang]);
   }, [lang]);
 
-  const persist = (l) => {
+  const setLang = useCallback((l) => {
+    setLangState(l);
     try {
       localStorage.setItem('lang', l);
     } catch (e) {
       /* ignore */
     }
-  };
-  const changeLang = useCallback((l) => {
-    setLang(l);
-    persist(l);
-  }, []);
-  const chooseLang = useCallback((l) => {
-    setLang(l);
-    persist(l);
-    setNeedsChoice(false);
-    sync.entered = true;
-    document.documentElement.classList.add('entered');
   }, []);
 
   const t = useCallback((v) => (v && typeof v === 'object' ? v[lang] ?? v.sk : v), [lang]);
-  const value = useMemo(
-    () => ({ lang, setLang: changeLang, chooseLang, needsChoice, t }),
-    [lang, changeLang, chooseLang, needsChoice, t]
-  );
+  const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { mulberry32 } from '../../lib/util';
 import { sync } from '../../lib/store';
-import { SITE } from '../../data/site';
+import { NODES, SITE } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import Split from '../ui/Split';
 
@@ -96,20 +96,18 @@ function OriginNet() {
 
 export default function Origin() {
   const { t } = useLang();
+  const n = NODES[1];
   return (
     <section id="origin" data-node="1" className="origin">
       <OriginNet />
       <div className="origin__text">
-        <h2 className="mega mega--origin" aria-label="MELČICE-LIESKOVÉ">
-          <Split text={"MELČICE-\nLIESKOVÉ"} />
+        <h2 className="mega mega--sm">
+          <Split text={`${n.num} / MELČICE-\nLIESKOVÉ`} />
         </h2>
-        <p className="origin__country">{t(UI.country)}</p>
-        <div className="school">
-          <p className="meta">{t(UI.foundedWith)}</p>
-          <p className="school__name">{SITE.school}</p>
-          <p className="school__note">{t(UI.schoolNote)}</p>
-        </div>
-        <p className="statement statement--narrow">{t(UI.originLead)}</p>
+        <p className="statement statement--narrow origin__lead">{t(UI.originLead)}</p>
+        <p className="origin__school">
+          {t(UI.foundedWith)} <strong>{SITE.school}</strong>.
+        </p>
       </div>
     </section>
   );

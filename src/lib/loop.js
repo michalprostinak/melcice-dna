@@ -37,7 +37,6 @@ export function startLoop() {
     lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.9, smoothWheel: true });
     sync.lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
-    if (document.documentElement.classList.contains('gate-open')) lenis.stop();
   }
   let lastY = window.scrollY;
 

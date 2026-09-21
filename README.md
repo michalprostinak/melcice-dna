@@ -10,7 +10,7 @@ npm run build    # produkcia -> dist/
 
 ## Obsah upravuješ v jednom súbore
 `src/data/site.js` — projekty (placeholdery), členovia, udalosti, technológie, odkazy
-(registračný formulár, GitHub). Nový projekt / člen / udalosť = pridať objekt do poľa.
+(odkazy). Nový projekt / člen / udalosť = pridať objekt do poľa.
 
 ## Ako to funguje
 - Scroll -> `sync.u` (lib/loop.js) -> scéna (components/dna/DnaCanvas.jsx) vyberie pohľad

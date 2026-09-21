@@ -58,7 +58,7 @@ export default function Events() {
         {nextEv && !cd.done && (
           <div className="countdown" role="timer" aria-label={`${t(UI.countdownLabel)}: ${t(nextEv.title)}`}>
             <p className="meta">
-              {t(UI.countdownLabel)} · {t(nextEv.title)}
+              {t(UI.countdownLabel)}
             </p>
             <p className="countdown__t tnum">
               {pad(cd.d)}<i>d</i> {pad(cd.h)}<i>h</i> {pad(cd.m)}<i>m</i> {pad(cd.s)}<i>s</i>

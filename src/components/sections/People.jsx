@@ -25,13 +25,7 @@ function Specimen({ m }) {
         <ul className="contacts">
           {m.contacts.map((c) => (
             <li key={c.value}>
-              {c.type === 'email' ? (
-                <a href={`mailto:${c.value}`}>{c.value}</a>
-              ) : (
-                <a href={c.href} target="_blank" rel="noopener noreferrer">
-                  GitHub: {c.value} ↗
-                </a>
-              )}
+              <a href={`mailto:${c.value}`}>{c.value}</a>
             </li>
           ))}
         </ul>

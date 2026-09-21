@@ -40,9 +40,12 @@ export default function About() {
           ))}
         </ul>
         <ul className="principles">
-          {PRINCIPLES.map(([h, l]) => (
+          {PRINCIPLES.map(([h, l], i) => (
             <li key={h}>
-              <h3>{t(UI[h])}</h3>
+              <h3>
+                <span>{i + 1}.</span>
+                {t(UI[h])}
+              </h3>
               <p>{t(UI[l])}</p>
             </li>
           ))}

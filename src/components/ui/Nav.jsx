@@ -52,7 +52,6 @@ export default function Nav() {
     <>
       <header className="nav">
         <a className="nav__brand" href="#top" onClick={go('top')} aria-label={`${SITE.name} — ${t(UI.backTop)}`}>
-          <span className="nav__mark" aria-hidden="true" />
           {SITE.brand}
         </a>
         <nav className="nav__links" aria-label={t(UI.navPrimary)}>
@@ -61,9 +60,6 @@ export default function Nav() {
               {t(UI[l.key])}
             </a>
           ))}
-          <a href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
         </nav>
         <div className="lang" role="group" aria-label={t(UI.language)}>
           {['sk', 'en'].map((l) => (
@@ -105,9 +101,6 @@ export default function Nav() {
             </li>
           ))}
         </ol>
-        <a className="index__gh" href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
       </div>
     </>
   );
