@@ -102,12 +102,17 @@ export default function Origin() {
       <OriginNet />
       <div className="origin__text">
         <h2 className="mega mega--sm">
-          <Split text={`${n.num} / MELČICE-\nLIESKOVÉ`} />
+          <Split text={`${n.num} / ${t(n.label)}`} />
         </h2>
-        <p className="statement statement--narrow origin__lead">{t(UI.originLead)}</p>
-        <p className="origin__school">
-          {t(UI.foundedWith)} <strong>{SITE.school}</strong>.
+        <p className="statement statement--narrow origin__lead">
+          <Split text={t(UI.originStatement)} delay={3} />
         </p>
+        <p className="origin__body">
+          {t(UI.originText).split('{school}')[0]}
+          <strong>{SITE.school}</strong>
+          {t(UI.originText).split('{school}')[1]}
+        </p>
+        <p className="origin__place meta">{t(UI.originPlace)}</p>
       </div>
     </section>
   );

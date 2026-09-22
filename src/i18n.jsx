@@ -9,90 +9,94 @@ export const useLang = () => useContext(Ctx);
 export const UI = {
   title: { sk: SITE.name, en: SITE.name },
   description: {
-    sk: 'Hack Club Melčice: študentská komunita, ktorá tvorí veci pomocou kódu, hardvéru a zvedavosti. Melčice-Lieskové, Slovensko.',
-    en: 'Hack Club Melčice: a student-built community creating things with code, hardware, and curiosity. Melčice-Lieskové, Slovakia.',
+    sk: 'Hack Club Melčice: študentský technologický klub, ktorý tvorí weby, softvér, hardvér a všetko medzi tým. Melčice-Lieskové, Slovensko.',
+    en: 'Hack Club Melčice: a student-led technology club building websites, software, hardware and everything in between. Melčice-Lieskové, Slovakia.',
   },
   skip: { sk: 'Preskočiť na obsah', en: 'Skip to content' },
   navHome: { sk: 'Domov', en: 'Home' },
   navPeople: { sk: 'Ľudia', en: 'People' },
   navEvents: { sk: 'Udalosti', en: 'Events' },
+  navHack: { sk: 'Hack Club', en: 'Hack Club' },
   menu: { sk: 'MENU', en: 'MENU' },
   close: { sk: 'ZAVRIEŤ', en: 'CLOSE' },
   language: { sk: 'Jazyk', en: 'Language' },
   navPrimary: { sk: 'Hlavná navigácia', en: 'Main navigation' },
   navSections: { sk: 'Sekcie stránky', en: 'Page sections' },
-  navFooter: { sk: 'Navigácia v pätičke', en: 'Footer navigation' },
-  technologies: { sk: 'Technológie', en: 'Technologies' },
   menuPanel: { sk: 'Menu so sekciami', en: 'Section menu' },
   backTop: { sk: 'späť hore', en: 'back to top' },
+
+  // hero
+  heroTag: { sk: 'Tvoríme veci.', en: 'We make things.' },
   heroLead: {
-    sk: 'Študentská komunita, ktorá tvorí veci pomocou kódu, hardvéru a zvedavosti.',
-    en: 'A student-built community creating things with code, hardware, and curiosity.',
+    sk: 'Študentský technologický klub, ktorý tvorí weby, softvér, hardvér a všetko medzi tým.',
+    en: 'A student-led technology club building websites, software, hardware and everything in between.',
   },
-  explore: { sk: 'PRESKÚMAJ DNA', en: 'EXPLORE THE DNA' },
-  codeStatement: {
-    sk: 'Programovanie sa nielen učíme.\nPoužívame ho na tvorbu vecí.',
-    en: "We don't just learn programming.\nWe use it to make things.",
+  exploreClub: { sk: 'PRESKÚMAJ KLUB', en: 'EXPLORE THE CLUB' },
+  nextMeeting: { sk: 'NAJBLIŽŠIE STRETNUTIE', en: 'NEXT MEETING' },
+
+  // 01 origin
+  originStatement: { sk: 'Malá škola.\nVeľa nápadov.', en: 'A small school.\nA lot of ideas.' },
+  originText: {
+    sk: 'Hack Club Melčice vznikol v {school} s jedným cieľom: dať študentom miesto, kde môžu spoločne tvoriť, experimentovať a učiť sa technológie.',
+    en: 'Hack Club Melčice started at {school} with one goal: to give students a place to build, experiment and learn technology together.',
   },
-  pCreate: { sk: 'Tvoríme', en: 'Create' },
-  pLearn: { sk: 'Učíme sa', en: 'Learn' },
-  pShare: { sk: 'Zdieľame', en: 'Share' },
-  pShip: { sk: 'Dokončujeme', en: 'Ship' },
-  createLine: {
-    sk: 'Nápady začínajú náčrtom, drôtom alebo prázdnym súborom.',
-    en: 'Ideas start as a sketch, a wire, a blank file.',
+  originPlace: { sk: 'Vytvorené v Melčiciach-Lieskovom, Slovensko.', en: 'Built in Melčice-Lieskové, Slovakia.' },
+
+  // 02 build
+  buildStatement: {
+    sk: 'Od prvého riadku kódu\npo niečo, čo naozaj používaš.',
+    en: 'From the first line of code\nto something you can actually use.',
   },
-  learnLine: {
-    sk: 'Nikto nezačína ako expert. Každý začína tým, že skúša.',
-    en: 'Nobody starts as an expert. Everyone starts by trying.',
+  buildText: {
+    sk: 'Technológie skúmame cez projekty, experimenty a spoluprácu. Niekedy to funguje na prvý raz. Zvyčajne nie. Aj to patrí k procesu.',
+    en: "We explore technology through projects, experiments and collaboration. Sometimes it works on the first try. Usually it doesn't. That's part of the process.",
   },
-  shareLine: {
-    sk: 'Ukáž kód. Vysvetli ho. Pomôž ďalšiemu.',
-    en: 'Show the code. Explain it. Help the next person.',
+
+  // 03 how
+  howStatement: { sk: 'Nemusíš písať\ndokonalý kód.', en: 'No perfect\ncode required.' },
+
+  // 04 people
+  peopleStatement: { sk: 'Rôzne záujmy.\nJedna komunita.', en: 'Different interests.\nOne community.' },
+  peopleText: {
+    sk: 'Sme študenti, tvorcovia, programátori a zvedaví ľudia, ktorí spolu na škole budujú niečo nové.',
+    en: 'We are students, makers, programmers and curious people building something together at school.',
   },
-  shipLine: {
-    sk: 'Projekt sa počíta, až keď ho môže použiť niekto iný.',
-    en: 'A project counts when someone else can use it.',
-  },
-  peopleTitle: { sk: 'ĽUDIA\nSÚ DNA.', en: 'THE PEOPLE\nARE THE DNA.' },
-  originLead: {
-    sk: 'Technologická komunita vedená študentmi z malej slovenskej školy.',
-    en: 'A student-led technology community from a small Slovak school.',
-  },
-  foundedWith: { sk: 'Založené v spolupráci so', en: 'Founded in cooperation with' },
+
+  // 05 events
   countdownLabel: { sk: 'Do začiatku', en: 'Starts in' },
-  upcoming: { sk: 'NADCHÁDZAJÚCA UDALOSŤ', en: 'UPCOMING EVENT' },
+  upcoming: { sk: 'NADCHÁDZAJÚCA UDALOSŤ', en: 'UPCOMING' },
   past: { sk: 'MINULÁ UDALOSŤ', en: 'PAST EVENT' },
-  time: { sk: 'ČAS', en: 'TIME' },
+  arrival: { sk: 'PRÍCHOD', en: 'ARRIVAL' },
+  start: { sk: 'ZAČIATOK', en: 'START' },
   place: { sk: 'MIESTO', en: 'PLACE' },
   tba: { sk: 'bude upresnené', en: 'TBA' },
+  whatsHappening: { sk: 'ČO SA BUDE DIAŤ?', en: "WHAT'S HAPPENING?" },
   openEvent: { sk: 'UDALOSŤ V KALENDÁRI', en: 'EVENT IN CALENDAR' },
-  hcLead: {
-    sk: 'Celosvetová nezisková komunita tínedžerov, ktorí sa učia programovať tvorbou skutočných projektov.',
-    en: 'A worldwide nonprofit community of teenagers who learn to code by building real projects.',
+
+  // 06 hack club
+  hcHeading: { sk: '06 / SÚČASŤ\nVÄČŠIEHO CELKU', en: '06 / PART OF\nSOMETHING BIGGER' },
+  hcStatement: {
+    sk: 'Komunita mladých ľudí, ktorí tvoria s technológiami.',
+    en: 'A community of young people building with technology.',
   },
-  hcClubsT: { sk: 'Kluby', en: 'Clubs' },
-  hcClubs: {
-    sk: 'Študenti po celom svete zakladajú kluby vo svojich školách a spolu tvoria.',
-    en: 'Students around the world start clubs in their schools and build together.',
+  hcText1: {
+    sk: 'Hack Club spája študentmi vedené programátorské kluby, podujatia a tvorcov z celého sveta.',
+    en: 'Hack Club connects student-led programming clubs, events and makers from around the world.',
   },
-  hcCommunityT: { sk: 'Komunita', en: 'Community' },
-  hcCommunity: {
-    sk: 'Online komunita mladých programátorov a tvorcov, kde si pomáhajú a ukazujú, čo vyrobili.',
-    en: 'An online community of young programmers and makers who help each other and show what they built.',
+  hcText2: {
+    sk: 'Cez komunitu sa študenti môžu učiť jeden od druhého, zdieľať projekty a nachádzať nové spôsoby, ako tvoriť.',
+    en: 'Through the community, students can learn from each other, share projects and find new ways to build.',
   },
-  hcEventsT: { sk: 'Podujatia', en: 'Events' },
-  hcEvents: {
-    sk: 'Hackathony a výzvy, na ktorých mladí ľudia za krátky čas postavia niečo vlastné.',
-    en: 'Hackathons and challenges where young people build something of their own in a short time.',
+  hcTags: { sk: ['Vedené študentmi', 'Projekty', 'Komunita'], en: ['Student-led', 'Projects', 'Community'] },
+  hcMelcice: { sk: 'Hack Club Melčice je súčasťou tejto komunity.', en: 'Hack Club Melčice is part of this community.' },
+  hcLink: { sk: 'PRESKÚMAJ HACK CLUB', en: 'EXPLORE HACK CLUB' },
+
+  // footer
+  footerTitle: { sk: 'VYROBENÉ\nV MELČICIACH.', en: 'MADE IN\nMELČICE.' },
+  footerText: {
+    sk: 'Technologická komunita vedená študentmi na {school}.',
+    en: 'A student-led technology community at {school}.',
   },
-  hcMelcice: {
-    sk: 'Hack Club Melčice je jedným z klubov v tejto sieti.',
-    en: 'Hack Club Melčice is one of the clubs in this network.',
-  },
-  hcLink: { sk: 'NAVŠTÍV HACKCLUB.COM', en: 'VISIT HACKCLUB.COM' },
-  navHack: { sk: 'Hack Club', en: 'Hack Club' },
-  days: { sk: 'd', en: 'd' },
 };
 
 function readSaved() {

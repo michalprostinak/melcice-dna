@@ -25,11 +25,12 @@ const v = (o) => ({ ...base, ...o });
 
 export const VIEWS_DESKTOP = [
   v({ tilt: 0, roll: -0.3, y: 0.9, dist: 10.5, phi: 0.5, dim: 1 }), // 00 hero
-  v({ dist: 10, phi: -P / 2, dim: 0.32 }), // 01 melčice
-  v({ x: 0.6, dist: 7.5, phi: 0.15, dim: 0.7 }), // 02 what we do (text left)
-  v({ dist: 9, phi: P / 2, dim: 0.28 }), // 03 people
-  v({ dist: 9, phi: P - 0.15, dim: 0.34 }), // 04 events
-  v({ dist: 8.5, phi: 0.15, dim: 0.4 }), // 05 hack club
+  v({ dist: 10, phi: -P / 2, dim: 0.32 }), // 01 origin
+  v({ x: 0.6, dist: 7.5, phi: 0.15, dim: 0.7 }), // 02 build (text left)
+  v({ x: -0.6, dist: 7.5, phi: P - 0.15, dim: 0.7 }), // 03 how (text right)
+  v({ dist: 9, phi: P / 2, dim: 0.28 }), // 04 people
+  v({ dist: 9, phi: P - 0.15, dim: 0.34 }), // 05 events
+  v({ dist: 8.5, phi: 0.15, dim: 0.4 }), // 06 hack club
 ];
 
 const mBase = { tilt: 0, roll: 0, x: 2.6, y: 2.1, dist: 15, phi: P, dim: 0.5 };

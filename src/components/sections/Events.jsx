@@ -48,24 +48,12 @@ export default function Events() {
   }, []);
 
   const pad = (n) => String(n).padStart(2, '0');
-  const n = NODES[4];
+  const n = NODES[5];
   return (
-    <section id="events" data-node="4" className="sec sec--wide events">
-      <div className="events__head">
-        <h2 className="mega">
-          <Split text={`${n.num} / ${t(n.label)}`} />
-        </h2>
-        {nextEv && !cd.done && (
-          <div className="countdown" role="timer" aria-label={`${t(UI.countdownLabel)}: ${t(nextEv.title)}`}>
-            <p className="meta">
-              {t(UI.countdownLabel)}
-            </p>
-            <p className="countdown__t tnum">
-              {pad(cd.d)}<i>d</i> {pad(cd.h)}<i>h</i> {pad(cd.m)}<i>m</i> {pad(cd.s)}<i>s</i>
-            </p>
-          </div>
-        )}
-      </div>
+    <section id="events" data-node="5" className="sec sec--wide events">
+      <h2 className="mega mega--sm">
+        <Split text={`${n.num} / ${t(n.label)}`} />
+      </h2>
 
       <div className="seq" ref={wrap}>
         <span className="seq__line" aria-hidden="true">
@@ -74,6 +62,7 @@ export default function Events() {
         {sorted.map((ev) => {
           const past = eventTime(ev.date, ev.time) <= Date.now();
           const dt = formatDate(ev.date, lang);
+          const isNext = ev === nextEv;
           return (
             <article key={ev.id} className={`seq__item ${past ? 'is-past' : 'is-next'}`}>
               <span className="seq__node" aria-hidden="true" />
@@ -83,9 +72,32 @@ export default function Events() {
               </p>
               <h3>{t(ev.title)}</h3>
               {ev.note && <p className="seq__note">{t(ev.note)}</p>}
+
+              {isNext && !cd.done && (
+                <p className="countdown__t tnum">
+                  {pad(cd.d)}<i>d</i> {pad(cd.h)}<i>h</i> {pad(cd.m)}<i>m</i> {pad(cd.s)}<i>s</i>
+                </p>
+              )}
+
               <p className="meta seq__facts">
-                {t(UI.time)}: {ev.time || t(UI.tba)} &nbsp;&nbsp; {t(UI.place)}: {ev.place ? t(ev.place) : t(UI.tba)}
+                {ev.time && `${t(UI.arrival)} ${ev.time}`}
+                {ev.start && ` · ${t(UI.start)} ${ev.start}`}
+                {!ev.time && !ev.start && `${t(UI.time)}: ${t(UI.tba)}`}
+                <br />
+                {t(UI.place)}: {ev.place ? t(ev.place) : t(UI.tba)}
               </p>
+
+              {ev.agenda && ev.agenda.length > 0 && (
+                <div className="agenda">
+                  <p className="meta">{t(UI.whatsHappening)}</p>
+                  <ul>
+                    {ev.agenda.map((a) => (
+                      <li key={t(a)}>{t(a)}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {ev.link && (
                 <a className="btn btn--ghost btn--sm" href={ev.link} target="_blank" rel="noopener noreferrer">
                   <span className="btn__label">{t(UI.openEvent)}</span>

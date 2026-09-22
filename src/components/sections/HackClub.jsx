@@ -1,28 +1,22 @@
-import { NODES, SITE } from '../../data/site';
+import { SITE } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import Split from '../ui/Split';
 
-const ITEMS = [
-  ['hcClubsT', 'hcClubs'],
-  ['hcCommunityT', 'hcCommunity'],
-  ['hcEventsT', 'hcEvents'],
-];
-
 export default function HackClub() {
   const { t } = useLang();
-  const n = NODES[5];
   return (
-    <section id="hackclub" data-node="5" className="sec sec--wide hackclub">
+    <section id="hackclub" data-node="6" className="sec sec--wide hackclub">
       <h2 className="mega mega--sm">
-        <Split text={`${n.num} / ${t(n.label)}`} />
+        <Split text={t(UI.hcHeading)} />
       </h2>
-      <p className="statement statement--narrow">{t(UI.hcLead)}</p>
-      <ul className="hc">
-        {ITEMS.map(([h, p]) => (
-          <li key={h}>
-            <h3>{t(UI[h])}</h3>
-            <p>{t(UI[p])}</p>
-          </li>
+      <p className="statement statement--narrow">
+        <Split text={t(UI.hcStatement)} delay={3} />
+      </p>
+      <p className="hc__text">{t(UI.hcText1)}</p>
+      <p className="hc__text">{t(UI.hcText2)}</p>
+      <ul className="hc__tags">
+        {t(UI.hcTags).map((tag) => (
+          <li key={tag}>{tag}</li>
         ))}
       </ul>
       <p className="hc__note">{t(UI.hcMelcice)}</p>

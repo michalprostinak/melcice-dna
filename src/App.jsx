@@ -5,7 +5,8 @@ import { startLoop } from './lib/loop';
 import DnaFallback from './components/dna/DnaFallback';
 import Nav from './components/ui/Nav';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
+import Build from './components/sections/Build';
+import How from './components/sections/How';
 import People from './components/sections/People';
 import Origin from './components/sections/Origin';
 import Events from './components/sections/Events';
@@ -46,7 +47,8 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <Hero />
         <Origin />
-        <About />
+        <Build />
+        <How />
         <People />
         <Events />
         <HackClub />
