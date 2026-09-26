@@ -5,12 +5,8 @@ import { startLoop } from './lib/loop';
 import DnaFallback from './components/dna/DnaFallback';
 import Nav from './components/ui/Nav';
 import Hero from './components/sections/Hero';
-import Build from './components/sections/Build';
-import How from './components/sections/How';
-import People from './components/sections/People';
 import Origin from './components/sections/Origin';
-import Events from './components/sections/Events';
-import HackClub from './components/sections/HackClub';
+import About from './components/sections/About';
 import Footer from './components/sections/Footer';
 
 const DnaCanvas = lazy(() => import('./components/dna/DnaCanvas'));
@@ -47,11 +43,7 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <Hero />
         <Origin />
-        <Build />
-        <How />
-        <People />
-        <Events />
-        <HackClub />
+        <About />
       </main>
       <Footer />
     </>

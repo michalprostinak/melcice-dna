@@ -1,4 +1,4 @@
-import { NODES, TECH } from '../../data/site';
+import { CATEGORIES, NODES } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import { codonOf } from '../../lib/util';
 import { useScramble } from '../../hooks/hooks';
@@ -15,13 +15,6 @@ function Gene({ tag }) {
   );
 }
 
-const PRINCIPLES = [
-  ['pCreate', 'createLine'],
-  ['pLearn', 'learnLine'],
-  ['pShare', 'shareLine'],
-  ['pShip', 'shipLine'],
-];
-
 export default function About() {
   const { t } = useLang();
   const n = NODES[2];
@@ -34,22 +27,22 @@ export default function About() {
         <p className="statement">
           <Split text={t(UI.codeStatement)} delay={3} />
         </p>
-        <ul className="genes" aria-label={t(UI.technologies)}>
-          {TECH.map((x) => (
-            <Gene key={x.key} tag={x.tag} />
-          ))}
-        </ul>
-        <ul className="principles">
-          {PRINCIPLES.map(([h, l], i) => (
-            <li key={h}>
+        <div className="about-categories">
+          {CATEGORIES.map((c, i) => (
+            <div className="about-category" key={c.key}>
               <h3>
                 <span>{i + 1}.</span>
-                {t(UI[h])}
+                {t(c.title)}
               </h3>
-              <p>{t(UI[l])}</p>
-            </li>
+              <p>{t(c.desc)}</p>
+              <ul className="genes" aria-label={t(c.title)}>
+                {c.items.map((item) => (
+                  <Gene key={typeof item === 'string' ? item : item.sk} tag={t(item).toUpperCase()} />
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

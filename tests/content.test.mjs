@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { eventTime } from '../src/lib/util.js';
 import { validateContent } from '../src/data/validate.js';
-import { EVENTS, MEMBERS } from '../src/data/site.js';
+import { EVENTS } from '../src/data/site.js';
 
 const iso = (d, t) => new Date(eventTime(d, t)).toISOString();
 
@@ -23,5 +23,5 @@ test('prechody na letný/zimný čas', () => {
 });
 
 test('obsah v site.js je platný', () => {
-  assert.deepEqual(validateContent({ EVENTS, MEMBERS }), []);
+  assert.deepEqual(validateContent({ EVENTS }), []);
 });

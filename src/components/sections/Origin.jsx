@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { mulberry32 } from '../../lib/util';
 import { sync } from '../../lib/store';
-import { NODES, SITE } from '../../data/site';
+import { NODES } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import Split from '../ui/Split';
 
@@ -104,15 +104,8 @@ export default function Origin() {
         <h2 className="mega mega--sm">
           <Split text={`${n.num} / ${t(n.label)}`} />
         </h2>
-        <p className="statement statement--narrow origin__lead">
-          <Split text={t(UI.originStatement)} delay={3} />
-        </p>
-        <p className="origin__body">
-          {t(UI.originText).split('{school}')[0]}
-          <strong>{SITE.school}</strong>
-          {t(UI.originText).split('{school}')[1]}
-        </p>
-        <p className="origin__place meta">{t(UI.originPlace)}</p>
+        <p className="statement statement--narrow origin__lead">{t(UI.originLead)}</p>
+        <p className="origin__body">{t(UI.originBody)}</p>
       </div>
     </section>
   );

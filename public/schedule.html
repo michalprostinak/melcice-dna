@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="sk" data-lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Rozvrh — Hack Club Melčice</title>
+    <meta name="description" content="Rozvrh stretnutí Hack Club Melčice." />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        --bg: #ffffff; --fg: #0b2238; --gray: #55718c; --line: rgba(11,34,56,.18);
+        --accent: #1a6fd0; --tint: #dff0ff; --pad: clamp(20px, 4.2vw, 72px);
+        --sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+        --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--bg); color: var(--fg); }
+      body { min-height: 100svh; font-family: var(--sans); display: flex; flex-direction: column; padding: 18px var(--pad) 60px; }
+      a { color: inherit; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 8px 0 0; }
+      .brand { font-weight: 800; font-stretch: 80%; letter-spacing: -0.01em; font-size: 17px; text-decoration: none; }
+      .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.55); }
+      .lang button {
+        font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; padding: 8px 12px;
+        border: 0; background: none; color: inherit; cursor: pointer; transition: background .25s, color .25s;
+      }
+      .lang button.is-on { background: var(--fg); color: var(--bg); }
+      main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 0; }
+      .wrap { width: min(100%, 640px); }
+      .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 18px; }
+      h1 { font-weight: 800; font-stretch: 78%; font-size: clamp(34px, 6vw, 56px); letter-spacing: -0.03em; text-transform: uppercase; margin: 0 0 34px; line-height: 1.05; }
+      .event { position: relative; padding: 28px 26px 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--tint); }
+      .event__num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--accent); }
+      .event__title { font-weight: 800; font-stretch: 80%; font-size: clamp(24px, 3.4vw, 34px); letter-spacing: -0.02em; text-transform: uppercase; margin: 8px 0 20px; }
+      .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin: 0 0 20px; }
+      .fact dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin: 0 0 4px; }
+      .fact dd { margin: 0; font-weight: 700; font-size: clamp(18px, 2vw, 22px); letter-spacing: -0.01em; }
+      .event__note { margin: 0; color: var(--gray); font-size: 16px; line-height: 1.45; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; min-height: 46px; padding: 0 22px;
+        border-radius: 999px; border: 1px solid var(--fg); background: var(--fg); color: #fff;
+        font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-decoration: none;
+      }
+      .btn:hover { background: var(--accent); border-color: var(--accent); }
+      .back { display: inline-block; margin-top: 36px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+      .back:hover { border-color: var(--accent); color: var(--accent); }
+      [data-en] { display: none; }
+      html[data-lang="en"] [data-sk] { display: none; }
+      html[data-lang="en"] [data-en] { display: initial; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">HACK CLUB MELČICE</a>
+      <div class="lang" role="group" aria-label="Jazyk / Language">
+        <button type="button" data-set-lang="sk">SK</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <p class="meta"><span data-sk>Rozvrh</span><span data-en>Schedule</span></p>
+        <h1><span data-sk>Najbližšie stretnutie</span><span data-en>Upcoming meeting</span></h1>
+        <article class="event">
+          <p class="event__num">01</p>
+          <h2 class="event__title"><span data-sk>Prvé stretnutie</span><span data-en>First meeting</span></h2>
+          <dl class="facts">
+            <div class="fact">
+              <dt><span data-sk>Dátum</span><span data-en>Date</span></dt>
+              <dd><span data-sk>2. októbra 2026</span><span data-en>October 2, 2026</span></dd>
+            </div>
+            <div class="fact">
+              <dt><span data-sk>Čas</span><span data-en>Time</span></dt>
+              <dd>13:30</dd>
+            </div>
+            <div class="fact">
+              <dt><span data-sk>Miesto</span><span data-en>Place</span></dt>
+              <dd><span data-sk>IT miestnosť</span><span data-en>IT classroom</span></dd>
+            </div>
+          </dl>
+          <p class="event__note">
+            <span data-sk>Prvé stretnutie klubu. Príďte, aj keď ešte nič neviete — začíname spolu od nuly.</span>
+            <span data-en>The first meeting of the club. Come along even if you know nothing yet — we're starting from zero, together.</span>
+          </p>
+          <a class="btn" href="https://calendar.app.google/FeU3ACHTBuSBz9fa7" target="_blank" rel="noopener noreferrer">
+            <span data-sk>PRIDAŤ DO KALENDÁRA</span><span data-en>ADD TO CALENDAR</span>
+          </a>
+        </article>
+        <a class="back" href="/"><span data-sk>← SPÄŤ NA HLAVNÚ STRÁNKU</span><span data-en>← BACK TO THE HOMEPAGE</span></a>
+      </div>
+    </main>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var saved = null;
+        try { saved = localStorage.getItem('lang'); } catch (e) {}
+        var lang = saved === 'en' || saved === 'sk' ? saved : 'sk';
+        function apply(l) {
+          lang = l;
+          html.setAttribute('data-lang', l);
+          html.setAttribute('lang', l);
+          document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+            b.classList.toggle('is-on', b.getAttribute('data-set-lang') === l);
+          });
+          try { localStorage.setItem('lang', l); } catch (e) {}
+        }
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+          b.addEventListener('click', function () { apply(b.getAttribute('data-set-lang')); });
+        });
+        apply(lang);
+      })();
+    </script>
+  </body>
+</html>

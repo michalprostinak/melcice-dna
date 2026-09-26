@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="sk" data-lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Projekty — Hack Club Melčice</title>
+    <meta name="description" content="Projekty Hack Club Melčice. Čoskoro." />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        --bg: #ffffff; --fg: #0b2238; --gray: #55718c; --line: rgba(11,34,56,.18);
+        --accent: #1a6fd0; --tint: #dff0ff; --pad: clamp(20px, 4.2vw, 72px);
+        --sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+        --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--bg); color: var(--fg); }
+      body {
+        min-height: 100svh; font-family: var(--sans); display: flex; flex-direction: column;
+        padding: 18px var(--pad) 40px;
+      }
+      a { color: inherit; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 8px 0 0; }
+      .brand { font-weight: 800; font-stretch: 80%; letter-spacing: -0.01em; font-size: 17px; text-decoration: none; }
+      .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.55); }
+      .lang button {
+        font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; padding: 8px 12px;
+        border: 0; background: none; color: inherit; cursor: pointer; transition: background .25s, color .25s;
+      }
+      .lang button.is-on { background: var(--fg); color: var(--bg); }
+      main { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 0; }
+      .card { max-width: 46ch; }
+      .meta {
+        font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--accent); margin: 0 0 18px;
+      }
+      h1 {
+        font-weight: 800; font-stretch: 78%; font-size: clamp(36px, 7vw, 64px); letter-spacing: -0.03em;
+        text-transform: uppercase; margin: 0 0 18px; line-height: 1.05;
+      }
+      p.lead { font-size: clamp(16px, 2vw, 19px); line-height: 1.5; color: var(--gray); margin: 0; }
+      .back { display: inline-block; margin-top: 40px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+      .back:hover { border-color: var(--accent); color: var(--accent); }
+      [data-en] { display: none; }
+      html[data-lang="en"] [data-sk] { display: none; }
+      html[data-lang="en"] [data-en] { display: initial; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">HACK CLUB MELČICE</a>
+      <div class="lang" role="group" aria-label="Jazyk / Language">
+        <button type="button" data-set-lang="sk">SK</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </header>
+    <main>
+      <div class="card">
+        <p class="meta"><span data-sk>Projekty</span><span data-en>Projects</span></p>
+        <h1><span data-sk>Ešte to varíme</span><span data-en>Still cooking</span></h1>
+        <p class="lead">
+          <span data-sk>Táto stránka je zatiaľ prázdna — projekty sem pridáme, hneď ako ich bude čo ukázať.</span>
+          <span data-en>This page is empty for now — we'll add projects here as soon as there's something to show.</span>
+        </p>
+        <a class="back" href="/"><span data-sk>← SPÄŤ NA HLAVNÚ STRÁNKU</span><span data-en>← BACK TO THE HOMEPAGE</span></a>
+      </div>
+    </main>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var saved = null;
+        try { saved = localStorage.getItem('lang'); } catch (e) {}
+        var lang = saved === 'en' || saved === 'sk' ? saved : 'sk';
+        function apply(l) {
+          lang = l;
+          html.setAttribute('data-lang', l);
+          html.setAttribute('lang', l);
+          document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+            b.classList.toggle('is-on', b.getAttribute('data-set-lang') === l);
+          });
+          try { localStorage.setItem('lang', l); } catch (e) {}
+        }
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+          b.addEventListener('click', function () { apply(b.getAttribute('data-set-lang')); });
+        });
+        apply(lang);
+      })();
+    </script>
+  </body>
+</html>

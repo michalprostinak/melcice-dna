@@ -1,51 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
 import { NODES, SITE } from '../../data/site';
 import { UI, useLang } from '../../i18n';
 import { useActive } from '../../hooks/hooks';
 import { goTo } from '../../lib/nav';
-import { sync } from '../../lib/store';
 
+/* External, static pages — not part of the one-page scroll. */
 const LINKS = [
-  { key: 'navPeople', id: 'people' },
-  { key: 'navEvents', id: 'events' },
-  { key: 'navHack', id: 'hackclub' },
+  { key: 'navProjects', href: '/projects.html' },
+  { key: 'navSchedule', href: '/schedule.html' },
 ];
 
 export default function Nav() {
   const active = useActive();
   const { lang, setLang, t } = useLang();
-  const [open, setOpen] = useState(false);
-  const btnRef = useRef(null);
-  const panelRef = useRef(null);
-  const wasOpen = useRef(false);
-  const keepFocus = useRef(false); // true when the menu closed because a link was chosen
-
-  useEffect(() => {
-    if (sync.lenis) open ? sync.lenis.stop() : sync.lenis.start();
-    document.documentElement.classList.toggle('menu-open', open);
-    // Everything behind the open menu becomes non-interactive (focus + AT).
-    document.querySelectorAll('main, footer.footer, .rail, .skip').forEach((el) => {
-      if (open) el.setAttribute('inert', '');
-      else el.removeAttribute('inert');
-    });
-    if (open) {
-      const first = panelRef.current && panelRef.current.querySelector('a');
-      if (first) first.focus();
-    } else if (wasOpen.current && !keepFocus.current && btnRef.current) {
-      btnRef.current.focus(); // return focus to the menu button
-    }
-    wasOpen.current = open;
-    keepFocus.current = false;
-    const onKey = (e) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
 
   const go = (id) => (e) => {
     e.preventDefault();
-    keepFocus.current = true;
-    setOpen(false);
-    setTimeout(() => goTo(id), open ? 60 : 0);
+    goTo(id);
   };
 
   return (
@@ -56,7 +26,7 @@ export default function Nav() {
         </a>
         <nav className="nav__links" aria-label={t(UI.navPrimary)}>
           {LINKS.map((l) => (
-            <a key={l.id} href={`#${l.id}`} onClick={go(l.id)}>
+            <a key={l.key} href={l.href} target="_blank" rel="noopener noreferrer">
               {t(UI[l.key])}
             </a>
           ))}
@@ -68,9 +38,6 @@ export default function Nav() {
             </button>
           ))}
         </div>
-        <button ref={btnRef} className="nav__index" aria-expanded={open} aria-controls="index-panel" onClick={() => setOpen((o) => !o)}>
-          {open ? t(UI.close) : t(UI.menu)}
-        </button>
       </header>
 
       {/* Desktop: the DNA rail. Each tick is a node of the helix. */}
@@ -89,19 +56,6 @@ export default function Nav() {
           </a>
         ))}
       </nav>
-
-      <div id="index-panel" ref={panelRef} className={`index ${open ? 'is-open' : ''}`} inert={!open} role="dialog" aria-label={t(UI.menuPanel)}>
-        <ol>
-          {NODES.map((n, i) => (
-            <li key={n.id}>
-              <a href={`#${n.id}`} onClick={go(n.id)} className={i === active ? 'is-active' : ''}>
-                <span className="tnum">{n.num}</span>
-                {t(n.label)}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </div>
     </>
   );
 }
